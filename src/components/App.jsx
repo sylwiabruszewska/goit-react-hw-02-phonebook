@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
+import Notiflix from 'notiflix';
 
 import { Component } from 'react';
 
@@ -51,9 +52,10 @@ export class App extends Component {
       this.setState(prevState => ({
         contacts: [...prevState.contacts, newContact],
       }));
+      Notiflix.Notify.success('Contact added successfully');
       form.reset();
     } else {
-      alert(`${name} is already in contacts`);
+      Notiflix.Notify.warning(`${name} is already in contacts`);
     }
   };
 
