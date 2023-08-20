@@ -6,6 +6,7 @@ import { Component } from 'react';
 import Section from './Section';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
+import FilterInput from './FilterInput';
 
 export const StyledApp = styled.div`
   background-color: #fff;
@@ -25,6 +26,8 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     name: '',
+    number: '',
+    filter: '',
   };
 
   addNewContact = event => {
@@ -48,8 +51,16 @@ export class App extends Component {
     form.reset();
   };
 
+  handleFilterChange = event => {
+    this.setState({ filter: event.target.value });
+  };
+
   render() {
-    const contacts = this.state.contacts;
+    const { contacts, filter } = this.state;
+
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
 
     return (
       <StyledApp>
@@ -57,13 +68,8 @@ export class App extends Component {
           <ContactForm handler={this.addNewContact} />
         </Section>
         <Section title="Contacts">
-          <div>
-            <label>
-              Find contacts by name
-              <input type="text" />
-            </label>
-          </div>
-          <ContactList contacts={contacts}></ContactList>
+          <FilterInput value={filter} onChange={this.handleFilterChange} />
+          <ContactList contacts={filteredContacts} />
         </Section>
       </StyledApp>
     );
