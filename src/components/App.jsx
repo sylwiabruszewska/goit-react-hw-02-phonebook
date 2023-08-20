@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import Section from './Section';
+
 export const StyledApp = styled.div`
   background-color: #fff;
   margin: 20px 0;
@@ -12,8 +14,7 @@ export const StyledApp = styled.div`
 export const App = () => {
   return (
     <StyledApp>
-      <section>
-        <h2>Phonebook</h2>
+      <Section title="Phonebook">
         <form action="">
           <label>
             Name
@@ -21,9 +22,8 @@ export const App = () => {
           </label>
           <button>Add contact</button>
         </form>
-      </section>
-      <section>
-        <h2>Contacts</h2>
+      </Section>
+      <Section title="Contacts">
         <div>
           <label>
             Find contacts by name
@@ -35,7 +35,7 @@ export const App = () => {
           <li>2</li>
           <li>3</li>
         </ul>
-      </section>
+      </Section>
     </StyledApp>
   );
 };
