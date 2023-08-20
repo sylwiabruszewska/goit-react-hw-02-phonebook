@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import Section from './Section';
+import Button from './Button';
 
 export const StyledApp = styled.div`
   background-color: #fff;
@@ -20,7 +21,7 @@ export const App = () => {
             Name
             <input type="text" />
           </label>
-          <button>Add contact</button>
+          <Button>Add contact</Button>
         </form>
       </Section>
       <Section title="Contacts">
