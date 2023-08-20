@@ -14,7 +14,7 @@ export default function Contact({ name, number, handleDelete }) {
     <StyledItem>
       <span>{name}</span>
       <span>{number}</span>
-      <Button handler={handleDelete}></Button>
+      <Button handler={handleDelete}>Delete</Button>
     </StyledItem>
   );
 }
