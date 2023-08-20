@@ -39,17 +39,30 @@ export class App extends Component {
       number: { value: number },
     } = form.elements;
 
-    const newContact = {
-      id: nanoid(),
-      name,
-      number,
-    };
+    const existingContact = this.checkIfContactExists(name);
 
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
-    }));
-    form.reset();
+    if (!existingContact) {
+      const newContact = {
+        id: nanoid(),
+        name,
+        number,
+      };
+
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, newContact],
+      }));
+      form.reset();
+    } else {
+      alert(`${name} is already in contacts`);
+    }
   };
+
+  checkIfContactExists(name) {
+    const { contacts } = this.state;
+    return contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+  }
 
   handleFilterChange = event => {
     this.setState({ filter: event.target.value });
