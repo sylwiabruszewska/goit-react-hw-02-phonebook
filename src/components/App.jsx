@@ -66,6 +66,20 @@ export class App extends Component {
     );
   }
 
+  removeContact = id => {
+    const removedContact = this.state.contacts.find(
+      contact => contact.id === id
+    );
+
+    if (removedContact) {
+      this.setState(state => ({
+        contacts: state.contacts.filter(contact => contact.id !== id),
+      }));
+
+      Notiflix.Notify.success(`${removedContact.name} has been removed`);
+    }
+  };
+
   handleFilterChange = event => {
     this.setState({ filter: event.target.value });
   };
@@ -84,7 +98,10 @@ export class App extends Component {
         </Section>
         <Section title="Contacts">
           <FilterInput value={filter} onChange={this.handleFilterChange} />
-          <ContactList contacts={filteredContacts} />
+          <ContactList
+            contacts={filteredContacts}
+            handleDelete={this.removeContact}
+          />
         </Section>
       </StyledApp>
     );

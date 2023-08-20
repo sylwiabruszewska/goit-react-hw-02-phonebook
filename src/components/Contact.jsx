@@ -9,12 +9,14 @@ const StyledItem = styled.li`
   gap: 20px;
 `;
 
-export default function Contact({ name, number, handleDelete }) {
+export default function Contact({ id, name, number, handleDelete }) {
   return (
     <StyledItem>
       <span>{name}</span>
       <span>{number}</span>
-      <Button handler={handleDelete}>Delete</Button>
+      <Button type="button" handler={() => handleDelete(id)}>
+        Delete
+      </Button>
     </StyledItem>
   );
 }

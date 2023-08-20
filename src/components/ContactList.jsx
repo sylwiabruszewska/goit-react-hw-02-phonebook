@@ -7,10 +7,11 @@ export default function ContactList({ contacts, handleDelete }) {
       {contacts.map(({ id, name, number }) => (
         <Contact
           key={id}
+          id={id}
           name={name}
           number={number}
           handleDelete={handleDelete}
-        ></Contact>
+        />
       ))}
     </ul>
   );
