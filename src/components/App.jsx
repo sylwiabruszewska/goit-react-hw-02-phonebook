@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Section from './Section';
-import Button from './Button';
+import ContactForm from './ContactForm';
 
 export const StyledApp = styled.div`
   background-color: #fff;
@@ -16,13 +16,7 @@ export const App = () => {
   return (
     <StyledApp>
       <Section title="Phonebook">
-        <form action="">
-          <label>
-            Name
-            <input type="text" />
-          </label>
-          <Button>Add contact</Button>
-        </form>
+        <ContactForm />
       </Section>
       <Section title="Contacts">
         <div>
