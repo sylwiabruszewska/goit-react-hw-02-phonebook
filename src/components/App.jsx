@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { nanoid } from 'nanoid';
 
 import { Component } from 'react';
 
@@ -26,13 +27,34 @@ export class App extends Component {
     name: '',
   };
 
+  addNewContact = event => {
+    event.preventDefault();
+
+    const form = event.target;
+    const {
+      name: { value: name },
+      number: { value: number },
+    } = form.elements;
+
+    const newContact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
+    form.reset();
+  };
+
   render() {
     const contacts = this.state.contacts;
 
     return (
       <StyledApp>
         <Section title="Phonebook">
-          <ContactForm />
+          <ContactForm handler={this.addNewContact} />
         </Section>
         <Section title="Contacts">
           <div>
