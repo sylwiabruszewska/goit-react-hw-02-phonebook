@@ -29,7 +29,7 @@ export default function Button(props) {
 }
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   handler: PropTypes.func,
 };
