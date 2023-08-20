@@ -23,6 +23,6 @@ export default function Contact({ id, name, number, handleDelete }) {
 
 Contact.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  number: PropTypes.string.isRequired,
   handleDelete: PropTypes.func.isRequired,
 };
