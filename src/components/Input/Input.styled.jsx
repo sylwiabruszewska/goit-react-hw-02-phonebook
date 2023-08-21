@@ -21,3 +21,8 @@ export const StyledInput = styled.input`
     width: 50%;
   }
 `;
+
+export const ErrorMessage = styled.div`
+  color: red;
+  margin: 10px 0;
+`;

@@ -1,19 +1,46 @@
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyledInput } from './Input.styled';
+import { StyledInput, ErrorMessage } from './Input.styled';
 
-export default function Input(props) {
-  const { type, name, pattern, title, placeholder, required } = props;
+export default class Input extends Component {
+  state = {
+    value: '',
+  };
 
-  return (
-    <StyledInput
-      type={type}
-      name={name}
-      title={title}
-      placeholder={placeholder}
-      required={required}
-      pattern={pattern}
-    />
-  );
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
+
+  isInputValueValid() {
+    const pattern = this.props.pattern;
+    const value = this.state.value;
+
+    const regExp = new RegExp(pattern);
+    return regExp.test(value);
+  }
+
+  render() {
+    const { type, name, title, placeholder, required } = this.props;
+    const { value } = this.state;
+
+    const isValid = value === '' || this.isInputValueValid();
+
+    return (
+      <div>
+        <StyledInput
+          type={type}
+          name={name}
+          title={title}
+          placeholder={placeholder}
+          required={required}
+          pattern={this.props.pattern}
+          value={value}
+          onChange={this.handleChange}
+        />
+        {!isValid ? <ErrorMessage>{title}</ErrorMessage> : null}
+      </div>
+    );
+  }
 }
 
 Input.propTypes = {
