@@ -23,10 +23,12 @@ export const StyledInput = styled.input`
 
   &.valid {
     border: 2px solid limegreen;
+    outline: none;
   }
 
   &.invalid {
     border: 2px solid tomato;
+    outline: none;
   }
 `;
 
