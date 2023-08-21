@@ -5,7 +5,7 @@ export const StyledSection = styled.section`
   margin-bottom: 20px;
 
   & h2 {
-    margin-bottom: 12px;
+    margin: 20px 0 10px;
     font-weight: 600;
   }
 `;

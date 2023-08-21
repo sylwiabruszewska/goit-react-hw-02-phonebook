@@ -17,6 +17,10 @@ const StyledInput = styled.input`
   &:focus {
     outline: 2px solid #71a3ff;
   }
+
+  @media (min-width: 1200px) {
+    width: 50%;
+  }
 `;
 
 export default function Input(props) {

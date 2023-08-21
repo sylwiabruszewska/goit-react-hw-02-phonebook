@@ -9,13 +9,29 @@ import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import FilterInput from './FilterInput';
 
-export const StyledApp = styled.div`
+export const StyledPhonebook = styled.div`
   background-color: #fff;
   margin: 20px 0;
-  padding: 20px;
+  padding: 0 20px;
   border-radius: 10px;
   color: #313131;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  min-width: 300px;
+  width: 90%;
+
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 50%;
+  }
+`;
+
+export const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 export class App extends Component {
@@ -92,18 +108,20 @@ export class App extends Component {
     );
 
     return (
-      <StyledApp>
-        <Section title="Phonebook">
+      <StyledContainer>
+        <StyledPhonebook>
+          <h1>Phonebook</h1>
           <ContactForm handler={this.addNewContact} />
-        </Section>
-        <Section title="Contacts">
-          <FilterInput value={filter} onChange={this.handleFilterChange} />
-          <ContactList
-            contacts={filteredContacts}
-            handleDelete={this.removeContact}
-          />
-        </Section>
-      </StyledApp>
+
+          <Section title="Contacts">
+            <FilterInput value={filter} onChange={this.handleFilterChange} />
+            <ContactList
+              contacts={filteredContacts}
+              handleDelete={this.removeContact}
+            />
+          </Section>
+        </StyledPhonebook>
+      </StyledContainer>
     );
   }
 }
