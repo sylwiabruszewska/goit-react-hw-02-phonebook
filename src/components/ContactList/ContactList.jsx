@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Contact from './Contact';
+import Contact from '../Contact/Contact';
 
 export default function ContactList({ contacts, handleDelete }) {
   return (

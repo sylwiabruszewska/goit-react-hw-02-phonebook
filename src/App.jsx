@@ -1,38 +1,15 @@
-import styled from 'styled-components';
-import { nanoid } from 'nanoid';
-import Notiflix from 'notiflix';
-
 import { Component } from 'react';
 
-import Section from './Section';
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import FilterInput from './FilterInput';
+import {
+  Container,
+  Section,
+  ContactForm,
+  ContactList,
+  FilterInput,
+} from './components/index';
 
-export const StyledPhonebook = styled.div`
-  background-color: #fff;
-  margin: 20px 0;
-  padding: 0 20px;
-  border-radius: 10px;
-  color: #313131;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-
-  min-width: 300px;
-  width: 90%;
-
-  @media (min-width: 768px) {
-    width: 70%;
-  }
-
-  @media (min-width: 1200px) {
-    width: 50%;
-  }
-`;
-
-export const StyledContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+import { nanoid } from 'nanoid';
+import Notiflix from 'notiflix';
 
 export class App extends Component {
   state = {
@@ -108,20 +85,18 @@ export class App extends Component {
     );
 
     return (
-      <StyledContainer>
-        <StyledPhonebook>
-          <h1>Phonebook</h1>
-          <ContactForm handler={this.addNewContact} />
+      <Container>
+        <h1>Phonebook</h1>
+        <ContactForm handler={this.addNewContact} />
 
-          <Section title="Contacts">
-            <FilterInput value={filter} onChange={this.handleFilterChange} />
-            <ContactList
-              contacts={filteredContacts}
-              handleDelete={this.removeContact}
-            />
-          </Section>
-        </StyledPhonebook>
-      </StyledContainer>
+        <Section title="Contacts">
+          <FilterInput value={filter} onChange={this.handleFilterChange} />
+          <ContactList
+            contacts={filteredContacts}
+            handleDelete={this.removeContact}
+          />
+        </Section>
+      </Container>
     );
   }
 }

@@ -1,14 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-export const StyledSection = styled.section`
-  margin-bottom: 20px;
-
-  & h2 {
-    margin: 20px 0 10px;
-    font-weight: 600;
-  }
-`;
+import { StyledSection } from './Section.styled';
 
 export default function Section({ title, children }) {
   return (

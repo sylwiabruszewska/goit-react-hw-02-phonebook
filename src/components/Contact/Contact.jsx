@@ -1,31 +1,9 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { StyledItem, StyledBox, StyledIcon } from './Contact.styled';
 import { faUser, faPhone } from '@fortawesome/free-solid-svg-icons';
 
-import Button from './Button';
-
-const StyledItem = styled.li`
-  font-size: 16px;
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-  align-items: center;
-
-  & div {
-    width: 50%;
-  }
-`;
-
-const StyledBox = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const StyledIcon = styled(FontAwesomeIcon)`
-  margin-right: 10px;
-`;
+import Button from '../Button/Button';
 
 export default function Contact({ id, name, number, handleDelete }) {
   return (

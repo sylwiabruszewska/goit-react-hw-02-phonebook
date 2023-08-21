@@ -1,14 +1,8 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { StyledForm } from './ContactForm.styled';
 
-import Button from './Button';
-import Input from './Input';
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 
 export default function ContactForm({ handler }) {
   return (
@@ -20,6 +14,7 @@ export default function ContactForm({ handler }) {
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          placeholder="Name"
           required
         />
       </label>
@@ -31,6 +26,7 @@ export default function ContactForm({ handler }) {
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          placeholder="Number"
           required
         />
       </label>
