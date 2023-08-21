@@ -20,10 +20,11 @@ export default class Input extends Component {
   }
 
   render() {
-    const { type, name, title, placeholder, required } = this.props;
+    const { type, name, pattern, title, placeholder, required } = this.props;
     const { value } = this.state;
 
     const isValid = value === '' || this.isInputValueValid();
+    const inputClassName = value !== '' ? (isValid ? 'valid' : 'invalid') : '';
 
     return (
       <div>
@@ -33,9 +34,10 @@ export default class Input extends Component {
           title={title}
           placeholder={placeholder}
           required={required}
-          pattern={this.props.pattern}
+          pattern={pattern}
           value={value}
           onChange={this.handleChange}
+          className={inputClassName}
         />
         {!isValid ? <ErrorMessage>{title}</ErrorMessage> : null}
       </div>
@@ -50,4 +52,5 @@ Input.propTypes = {
   title: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  className: PropTypes.string,
 };

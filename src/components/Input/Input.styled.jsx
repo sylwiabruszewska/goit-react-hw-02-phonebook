@@ -20,9 +20,17 @@ export const StyledInput = styled.input`
   @media (min-width: 1200px) {
     width: 50%;
   }
+
+  &.valid {
+    border: 2px solid limegreen;
+  }
+
+  &.invalid {
+    border: 2px solid tomato;
+  }
 `;
 
 export const ErrorMessage = styled.div`
-  color: red;
+  color: tomato;
   margin: 10px 0;
 `;
