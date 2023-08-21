@@ -20,5 +20,6 @@ export const StyledBox = styled.div`
 `;
 
 export const StyledIcon = styled(FontAwesomeIcon)`
+  color: #71a3ff;
   margin-right: 10px;
 `;

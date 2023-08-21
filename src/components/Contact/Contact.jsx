@@ -9,12 +9,12 @@ export default function Contact({ id, name, number, handleDelete }) {
   return (
     <StyledItem>
       <StyledBox>
-        <StyledIcon icon={faUser} style={{ color: '#71a3ff' }} />
+        <StyledIcon icon={faUser} />
         <span>{name}</span>
       </StyledBox>
 
       <StyledBox>
-        <StyledIcon icon={faPhone} style={{ color: '#71a3ff' }} />
+        <StyledIcon icon={faPhone} />
         <span>{number}</span>
       </StyledBox>
       <Button
