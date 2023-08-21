@@ -8,12 +8,6 @@ export const StyledSection = styled.section`
     margin-bottom: 12px;
     font-weight: 600;
   }
-
-  & div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
 `;
 
 export default function Section({ title, children }) {
