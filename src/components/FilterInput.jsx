@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledFilterInput = styled.input`
   display: block;
   padding: 5px;
-  margin: 4px 0;
+  margin: 4px 0 20px;
   width: 100%;
   background-color: white;
   border-radius: 4px;
