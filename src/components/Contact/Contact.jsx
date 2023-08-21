@@ -17,7 +17,11 @@ export default function Contact({ id, name, number, handleDelete }) {
         <StyledIcon icon={faPhone} style={{ color: '#71a3ff' }} />
         <span>{number}</span>
       </StyledBox>
-      <Button type="button" handler={() => handleDelete(id)}>
+      <Button
+        type="button"
+        handler={() => handleDelete(id)}
+        customColor="tomato"
+      >
         Delete
       </Button>
     </StyledItem>

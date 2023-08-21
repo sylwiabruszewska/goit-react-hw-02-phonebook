@@ -13,7 +13,11 @@ export const StyledButton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #71a3ff;
+    background-color: ${({ customColor }) => customColor || '#71a3ff'};
     color: #fff;
+  }
+
+  &.button-delete:hover {
+    background-color: tomato;
   }
 `;
