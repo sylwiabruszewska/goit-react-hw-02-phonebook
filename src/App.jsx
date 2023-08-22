@@ -25,8 +25,6 @@ export class App extends Component {
   };
 
   addNewContact = event => {
-    event.preventDefault();
-
     const form = event.target;
     const {
       name: { value: name },
@@ -50,6 +48,8 @@ export class App extends Component {
     } else {
       Notiflix.Notify.warning(`${name} is already in contacts`);
     }
+
+    event.preventDefault();
   };
 
   checkIfContactExists(name) {
